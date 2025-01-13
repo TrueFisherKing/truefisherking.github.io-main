@@ -26,6 +26,7 @@
     let imgControlText = controlText.replace(", ", "-").toLowerCase();
     let selectLocation = createElementPlus("select", controller, null, { id: "location", name: "location" }, null);
 
+    // create variable for theTitle.innerText
     theTitle.innerText = `TFT Card - ${controlText.replace(",", "")} - ${salesPerson}`;
     getStateName();
 
@@ -126,6 +127,10 @@
             sn.innerText = salesPerson;
         });
         theTitle.innerText = `TFT Card - ${controlText.replace(",", "")} - ${salesPerson}`;
+        
+        if (event.key === "Enter") {
+            selectLocation.focus();
+        }
     };
     function updateLocation() {
         controlText = locations[selectLocation.options.selectedIndex];
