@@ -1,30 +1,42 @@
 * {
     box-sizing: border-box;
 }
+
 @page {
     size: landscape;
 }
+
 html {
     height: 100vh;
-    /* overflow: hidden; */
 }
+
+html:has(.print-page) {
+    zoom: 100%;
+}
+
 input::selection {
     background: #77f;
     color: #fff;
 }
-input:focus,select:focus,button:focus {
+
+input:focus,
+select:focus,
+button:focus {
     outline: none;
     outline: none;
     border: 1px solid #77f;
 }
+
 button {
     text-transform: uppercase;
 }
+
 button:focus {
     border: 1px solid #7c7;
     background: #7c7;
     color: #fff;
 }
+
 body {
     display: flex;
     flex-direction: column;
@@ -33,52 +45,64 @@ body {
     font-size: 0.6em;
     font-weight: bold;
 }
-html, body, p {
+
+html,
+body,
+p {
     margin: 0;
 }
+
 img {
     display: block;
     height: auto;
     width: 100%;
 }
-input, select {
+
+input,
+select {
     border-radius: 0;
     border: 1px solid #ccc;
 }
+
 h1 {
     text-align: center;
 }
-.print-card {
-    background: #88f;
-    color: #fff;
-    border: 1px solid #fff;
 
-    padding: 10px 20px;
-}
 #location {
     padding: 10px;
 }
- #salesInput {
+
+#salesInput {
     padding: 0px 10px;
 }
- #controller {
+
+#controller {
     display: flex;
     justify-content: center;
     padding: 20px 10px;
     gap: 10px;
- }
+}
+
 .cards {
     user-select: none;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    margin: 0 auto;
     height: 8.5in;
-    width: 11in;
     overflow: hidden;
 }
+
+.print-page .cards {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    width: 11in;
+}
+
 .card {
-   
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     margin: 0;
     padding: 10px;
@@ -86,12 +110,26 @@ h1 {
     border-left: 1px dashed #aaa;
     border-bottom: 1px dashed #aaa;
 }
-.card:nth-last-child(-n+3){
+
+.card:nth-last-child(-n+3) {
     border-bottom: 0;
 }
-.card:nth-child(3N + 1){
+
+.card:nth-child(3N + 1) {
     border-left: 0;
 }
+
+.print-page .card {
+    display: flex;
+}
+
+.card:first-child {
+    display: flex;
+    width: calc(11in / 3);
+    border: 1px dashed #ccc;
+    margin: 0 auto;
+}
+
 .images {
     padding: 5px 20px;
     width: 33%;
@@ -105,6 +143,7 @@ h1 {
 .images img:first-child {
     margin-bottom: 8px;
 }
+
 .text {
     display: flex;
     flex-direction: column;
@@ -113,9 +152,11 @@ h1 {
     width: 67%;
     position: relative;
 }
+
 .text div {
     padding: 0px 20px;
 }
+
 .top .stars {
     display: flex;
     gap: 4px;
@@ -123,7 +164,6 @@ h1 {
     padding: 0;
     width: 80%;
 }
-
 
 .text .mid {
     color: #04C;
@@ -146,7 +186,7 @@ h1 {
     margin-bottom: 0px;
 }
 
-.stars img{
+.stars img {
     height: 30px;
     width: 30px;
 }
@@ -154,10 +194,12 @@ h1 {
 .text p:first-child {
     text-transform: uppercase;
 }
+
 .bottom p {
     border-top: 2px solid #000;
     margin-bottom: 10px;
 }
+
 footer {
     display: flex;
     align-items: center;
@@ -165,12 +207,26 @@ footer {
     text-transform: uppercase;
     width: 100%;
 }
+
 .footer-image-container {
     width: 50px;
     height: 1em;
     line-height: 1em;
 }
+
 footer img {
     margin-top: 0.125em;
     margin-left: 0.5em;
+}
+
+@media screen and (min-width: 720px) {
+    html {
+        zoom: 150%;
+    }
+}
+
+@media screen and (min-width: 920px) {
+    html {
+        zoom: 200%;
+    }
 }
