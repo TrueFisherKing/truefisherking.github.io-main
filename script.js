@@ -35,32 +35,40 @@
     }
 
     let printCards = createElementPlus("button", controller, "print-card", null, "Save Card");
-    printCards.addEventListener("click", function () {     
+    printCards.addEventListener("click", function () {
         const title = theTitle.innerText;
+
         document.body.classList.add('print-page');
+
         html2canvas(cards, { scale: 1 }).then(canvas => {
             const imgData = canvas.toDataURL('image/png');
 
             const { jsPDF } = window.jspdf;
             const pdf = new jsPDF('landscape', 'in', 'a4');
 
-            
+
             const pdfWidth = pdf.internal.pageSize.getWidth();
             const pdfHeight = pdf.internal.pageSize.getHeight();
             pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
             pdf.save(`${title}.pdf`);
 
             document.body.classList.remove('print-page');
+            printCards.blur()
         });
 
     });
     salesInput.addEventListener('click', () => {
         salesInput.select();
     });
-    
+
     salesInput.addEventListener("keyup", updateSalesName);
     salesInput.addEventListener("change", updateSalesName);
     selectLocation.addEventListener("change", updateLocation);
+    selectLocation.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            printCards.focus();
+        }
+    });
 
     for (let i = 0; i < 12; i++) {
         let card = createElementPlus("div", cards, "card", null, null);
@@ -68,7 +76,7 @@
         // Create tft-logo
         createElementPlus("img", images, null, { src: `images/Town Fair Logo_Red Back.png`, alt: `tft-logo`, width: "70px", height: "70px" }, null);
         // Create QR Code Logo
-        let qrImage = createElementPlus("img", images, null, { src: `images/qr-codes/${imgControlText}.png`, alt: `QR Code`, width: "70px", height: "70px" }, null);
+        let qrImage = createElementPlus("img", images, null, { src: `images/qr-codes/${imgControlText}.png`, alt: `QR Code` }, null);
         qrImages.push(qrImage);
         let textDiv = createElementPlus("div", card, "text", null, null);
         let top = createElementPlus("div", textDiv, "top", null, null);
@@ -94,7 +102,7 @@
         createElementPlus("p", footer, null, null, "Satisfied with your service? Let us know on");
         // Create Google image in bottom paragraph
         const footerImageContainer = createElementPlus("div", footer, "footer-image-container", null, null);
-        createElementPlus("img", footerImageContainer, null, { src: "images/google_logo-667x400.png", alt: "Google Logo", width: 667, height:400}, null);
+        createElementPlus("img", footerImageContainer, null, { src: "images/google_logo-667x400.png", alt: "Google Logo", width: 667, height: 400 }, null);
     }
 
     function createElementPlus(elementType, appendToElement, theClass, theAttributes, theText) {
