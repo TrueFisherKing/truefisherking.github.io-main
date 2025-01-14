@@ -1,17 +1,17 @@
 .cards {
-    user-select: none;
-    display: grid;
-  
-  
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    margin: 0 auto;
-    height: 8.5in;
-    overflow: hidden;
-  }
-  
-  .print-page .cards {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    width: 11in;
-  }
+  user-select: none;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+
+  margin: 0 auto;
+  height: 8.5in;
+  overflow: hidden;
+}
+
+.print-page .cards {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  width: 11in;
+}

@@ -1,10 +1,10 @@
 import "./Controller.css"
-export default function Controller(){
-  function doNothingForNow(){
+export default function Controller() {
+  function doNothingForNow() {
 
   }
-    return (
-      <div id="controller">
+  return (
+    <div id="controller">
       <input onChange={doNothingForNow} value="Fisher" id="salesInput" maxLength="11" className="sales-input" type="text" placeholder="Enter Name" />
 
       <select id="location" name="location">
@@ -19,5 +19,5 @@ export default function Controller(){
 
       <button className="print-card">Save Card</button>
     </div>
-    )
+  )
 }
