@@ -1,0 +1,51 @@
+@page {
+    size: landscape;
+}
+
+html,
+body,
+p {
+    margin: 0;
+}
+
+/* Nay not need this in the end */
+html {
+    height: 100vh;
+}
+
+html,
+html:has(.print-page) {
+    zoom: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    font-family: system-ui, Arial;
+    font-size: 0.6em;
+    font-weight: bold;
+}
+
+img {
+    display: block;
+    height: auto;
+    width: 100%;
+}
+
+h1 {
+  text-align: center;
+  padding: 0 20px
+}
+
+@media screen and (min-width: 720px) {
+  html {
+      zoom: 150%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  html {
+      zoom: 200%;
+  }
+}

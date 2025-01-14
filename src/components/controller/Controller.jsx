@@ -5,7 +5,14 @@ export default function Controller() {
   }
   return (
     <div id="controller">
-      <input onChange={doNothingForNow} value="Fisher" id="salesInput" maxLength="11" className="sales-input" type="text" placeholder="Enter Name" />
+      <input onChange={doNothingForNow}
+        value="Fisher"
+        id="salesInput"
+        maxLength="11"
+        className="sales-input"
+        type="text"
+        placeholder="Enter Name"
+      />
 
       <select id="location" name="location">
         <option value="Branford, CT">Branford, CT</option>
