@@ -1,0 +1,14 @@
+#location {
+    padding: 10px;
+  }
+  
+  #salesInput {
+    padding: 0px 10px;
+  }
+  
+  #controller {
+    display: flex;
+    justify-content: center;
+    padding: 20px 10px;
+    gap: 10px;
+  }

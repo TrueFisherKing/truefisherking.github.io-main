@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+@page {
+  size: landscape;
+}
+
+html {
+  height: 100vh;
+}
+
+html, html:has(.print-page) {
+  zoom: 100%;
+}
+
+input::selection {
+  background: #77f;
+  color: #fff;
+}
+
+input:focus,
+select:focus,
+button:focus {
+  outline: none;
+  outline: none;
+  border: 1px solid #77f;
+}
+
+button {
+  text-transform: uppercase;
+  border: 1px solid #77f;
+  background: #77f;
+  color: #fff;
+}
+
+button:hover {
+  border: 1px solid #7c7;
+  background: #8d8;
+  color: #fff;
+}
+
+button:focus {
+  border: 1px solid #7c7;
+  background: #7c7;
+  color: #fff;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  font-family: system-ui, Arial;
+  font-size: 0.6em;
+  font-weight: bold;
+}
+
+html,
+body,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+input,
+select {
+  border-radius: 0;
+  border: 1px solid #ccc;
+}
+
+h1 {
+  text-align: center;
+  padding: 0 20px
+}
+
+
+
+@media screen and (min-width: 720px) {
+  html {
+      zoom: 150%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  html {
+      zoom: 200%;
+  }
+}
