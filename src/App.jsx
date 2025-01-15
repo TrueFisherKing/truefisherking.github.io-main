@@ -1,54 +1,74 @@
-import { useState } from 'react'
-import Cards from './components/cards/Cards'
-import locations from './data/locations'
-import './App.css'
-import './Controller.css'
+import { useRef, useEffect, useState } from 'react';
+import Cards from './components/cards/Cards';
+import locations from './data/locations';
+import './App.css';
+import './Controller.css';
+import printCards from './data/script'
 
 export default function App() {
-  const [user, setUser] = useState("Fisher")
+  const [user, setUser] = useState("Fisher");
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [currentLocation, setCurrentLocation] = useState(locations[0].value);
 
-  const [selectedIndex, setSelectedIndex] = useState(0)
-  const [currentLocation, setCurrentLocation] = useState(locations[0].value)
+  const salesInput = useRef(null);
 
-  function updateUserName() {
-    let name = document.getElementById("salesInput").value
-    setUser(name)
-  }
+  useEffect(() => {
+    if (salesInput.current) {
+      salesInput.current.focus();
+      salesInput.current.select();
+    }
+  }, []);
 
-  function updateLocation() {
-    let location = document.getElementById("location").value
-    setCurrentLocation(location)
+  const updateUserName = () => {
+    const name = salesInput.current?.value || "";
+    setUser(name);
+  };
 
-    let locationIndex = document.getElementById("location").selectedIndex
-    setSelectedIndex(locationIndex)
-  }
+  const updateLocation = () => {
+    const locationElement = document.getElementById("location");
+    if (locationElement) {
+      const location = locationElement.value;
+      const locationIndex = locationElement.selectedIndex;
+      setCurrentLocation(location);
+      setSelectedIndex(locationIndex);
+    }
+  };
 
-  // No need to change the code below when working on this task
   const locationOptions = locations.map((location) => (
-    <option key={location.id} value={location.value}> {location.value} </option>)
-  )
+    <option key={location.id} value={location.value}>
+      {location.value}
+    </option>
+  ));
 
-  document.querySelector("title").innerText = `TFT Card - ${currentLocation.replace(",", "")} - ${user}`
+  useEffect(() => {
+    document.title = `TFT Card - ${currentLocation.replace(",", "")} - ${user}`;
+  }, [currentLocation, user]);
 
   return (
     <>
-      <h1>After saving the card, open the Finder and navigate to the 'Downloads' folder. Locate the saved card file, and
-        print.</h1>
+      <h1>
+        After saving the card, open the Finder and navigate to the 'Downloads' folder. Locate the saved card file, and
+        print.
+      </h1>
       <div id="controller">
-        <input onChange={updateUserName}
+        <input
+          onChange={updateUserName}
           value={user}
           id="salesInput"
           type="text"
           maxLength="12"
           placeholder="Enter Name"
+          ref={salesInput}
+          onClick={() => salesInput.current?.select()}
         />
 
         <select onChange={updateLocation} id="location" name="location">
           {locationOptions}
         </select>
 
-        <button className="print-card">Save Card</button>
+        <button onClick={printCards} className="print-card">Save Card</button>
       </div>
+
       <Cards
         user={user}
         locations={locations[selectedIndex]}
@@ -56,5 +76,5 @@ export default function App() {
         selectedIndex={selectedIndex}
       />
     </>
-  )
+  );
 }

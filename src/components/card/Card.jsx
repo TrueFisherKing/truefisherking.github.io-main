@@ -4,39 +4,11 @@ import "./Card.css"
 import tftLogo from "/assets/images/Town Fair Logo_Red Back.png"
 import starImage from "/assets/images/star.png"
 import googleLogo from "/assets/images/google_logo-667x400.png"
+import { getStateName } from "../../data/script"
+
 
 export default function Card({ user, locations }) {
-
     let stateLocation = locations.value.split(", ")[1]
-
-    function getStateName() {
-        let stateName = ""
-        switch (stateLocation) {
-            case "CT":
-                return "Connecticut";
-                break;
-            case "NH":
-                return "New Hampshire";
-                break;
-            case "NY":
-                return "New York";
-                break;
-            case "ME":
-                return "Maine";
-                break;
-            case "MA":
-                return "Massachusetts";
-                break;
-            case "RI":
-                return "Rhode Island";
-                break;
-            case "VT":
-                return "Vermont";
-                break;
-            default:
-                break;
-        }
-    }
 
     return (
         <div className="card">
