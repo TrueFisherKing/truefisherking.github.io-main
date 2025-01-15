@@ -24,16 +24,10 @@
     let controlText = locations[0];
     let stateLocation = controlText.substring(controlText.indexOf(",") + 2, controlText.length);
     let imgControlText = controlText.replace(", ", "-").toLowerCase();
-    let selectLocation = createElementPlus("select", controller, null, { id: "location", name: "location" }, null);
 
-    // create variable for theTitle.innerText
-    theTitle.innerText = `TFT Card - ${controlText.replace(",", "")} - ${salesPerson}`;
-    getStateName();
 
-    for (let i = 0; i < locations.length; i++) {
-        const location = locations[i];
-        createElementPlus("option", selectLocation, null, { value: `${location}` }, location);
-    }
+
+   
 
     let printCards = createElementPlus("button", controller, "print-card", null, "Save Card");
     printCards.addEventListener("click", function () {
@@ -71,40 +65,6 @@
         }
     });
 
-    for (let i = 0; i < 12; i++) {
-        let card = createElementPlus("div", cards, "card", null, null);
-        let images = createElementPlus("div", card, "images", null, null);
-        // Create tft-logo
-        createElementPlus("img", images, null, { src: `images/Town Fair Logo_Red Back.png`, alt: `tft-logo`, width: "70px", height: "70px" }, null);
-        // Create QR Code Logo
-        let qrImage = createElementPlus("img", images, null, { src: `images/qr-codes/${imgControlText}.png`, alt: `QR Code` }, null);
-        qrImages.push(qrImage);
-        let textDiv = createElementPlus("div", card, "text", null, null);
-        let top = createElementPlus("div", textDiv, "top", null, null);
-        // Name of sales person
-        let mid = createElementPlus("p", textDiv, "mid", null, salesPerson);
-        salesNames.push(mid);
-        // Create top paragraph
-        createElementPlus("p", top, null, null, "Guaranteed Lowest Price");
-        // Create next two paragraphs
-        let tftParagraph = createElementPlus("p", top, null, null, `Town Fair Tire Centers <br>of ${stateName} LLC <br>${controlText}`);
-        tftParagraphs.push(tftParagraph);
-        let stars = createElementPlus("div", top, "stars", null, null);
-        for (let i = 0; i < 5; i++) {
-            // create star image
-            createElementPlus("img", stars, null, { src: "images/star.png", alt: "star" }, null);
-            // createElementPlus("div",stars,"star",null,null);
-        };
-        let bottom = createElementPlus("div", textDiv, "bottom", null, null);
-        // Create Salesman line
-        createElementPlus("p", bottom, null, null, "Your Salesman");
-        let footer = createElementPlus("footer", card, null, null, null);
-        // Create footer paragraph
-        createElementPlus("p", footer, null, null, "Satisfied with your service? Let us know on");
-        // Create Google image in bottom paragraph
-        const footerImageContainer = createElementPlus("div", footer, "footer-image-container", null, null);
-        createElementPlus("img", footerImageContainer, null, { src: "images/google_logo-667x400.png", alt: "Google Logo", width: 667, height: 400 }, null);
-    }
 
     function createElementPlus(elementType, appendToElement, theClass, theAttributes, theText) {
         let createdElement = document.createElement(elementType);

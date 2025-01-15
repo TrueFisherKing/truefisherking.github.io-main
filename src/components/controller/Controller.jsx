@@ -3,7 +3,7 @@ import "./Controller.css"
 import locations from "../../data/locations"
 
 export default function Controller(props) {
-  // console.log(props.locationOptions);
+  console.log(props.selectedIndex);
   
   function doNothingForNow() {
     // do nothing

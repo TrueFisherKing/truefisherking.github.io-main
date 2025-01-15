@@ -2,18 +2,17 @@ import React from 'react'
 import "./Cards.css"
 import Card from '../card/Card'
 
-export default function Cards({ user, updateUserName, currentLocation, updateLocation }) {
-    // console.log(updateLocation);
-    
+export default function Cards({ user, locations, updateLocation, selectedIndex }) {
+
     return (
         <div className="cards">
             {Array.from({ length: 12 }, (_, index) => (
                 <Card
                     key={index}
                     user={user}
-                    updateUserName={updateUserName}
-                    currentLocation={currentLocation}
+                    locations={locations}
                     onChange={updateLocation}
+                    selectedIndex={selectedIndex}
                 />
             ))}
         </div>

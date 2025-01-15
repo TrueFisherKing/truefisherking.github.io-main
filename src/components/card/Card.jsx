@@ -5,25 +5,52 @@ import tftLogo from "/assets/images/Town Fair Logo_Red Back.png"
 import starImage from "/assets/images/star.png"
 import googleLogo from "/assets/images/google_logo-667x400.png"
 
-// Will need to get all or all from qr-codes dir 
-import qrLogoBrandfordCT from "/assets/images/qr-codes/branford-ct.png"
+export default function Card({ user, locations }) {
 
-export default function Card({ user, updateUserName, currentLocation, updateLocation }) {
+    let stateLocation = locations.value.split(", ")[1]
+
+    function getStateName() {
+        let stateName = ""
+        switch (stateLocation) {
+            case "CT":
+                return "Connecticut";
+                break;
+            case "NH":
+                return "New Hampshire";
+                break;
+            case "NY":
+                return "New York";
+                break;
+            case "ME":
+                return "Maine";
+                break;
+            case "MA":
+                return "Massachusetts";
+                break;
+            case "RI":
+                return "Rhode Island";
+                break;
+            case "VT":
+                return "Vermont";
+                break;
+            default:
+                break;
+        }
+    }
+
     return (
         <div className="card">
             <div className="images">
                 <img src={tftLogo} alt="tft-logo" width="70px" height="70px" />
-                {/* Will need to get all or all from qr-codes dir  */}
-                {/* <img src={`/assets/images/qr-codes/${props.locations.imgUrl}`} alt="QR Code" /> */}
+                <img src={`/assets/images/qr-codes/${locations.value.replace(", ", "-").toLowerCase()}.png`} alt="QR Code" />
             </div>
             <div className="text">
                 <div className="top">
                     <p>Guaranteed Lowest Price</p>
                     <p>Town Fair Tire Centers <br />
-                        {/* Will need to get location from #location */}
-                        of Connecticut LLC <br />{user}</p>
+                        of {getStateName(stateLocation)} LLC <br />{locations.value}</p>
 
-                        
+
                     {/* Loop? */}
                     <div className="stars">
                         <img src={starImage} alt="star" />
