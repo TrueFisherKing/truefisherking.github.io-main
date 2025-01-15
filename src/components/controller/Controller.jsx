@@ -1,27 +1,34 @@
+import { useState } from "react"
 import "./Controller.css"
-export default function Controller() {
-  function doNothingForNow() {
+import locations from "../../data/locations"
 
+export default function Controller(props) {
+  // console.log(props.locationOptions);
+  
+  function doNothingForNow() {
+    // do nothing
   }
+  
+
   return (
     <div id="controller">
-      <input onChange={doNothingForNow}
-        value="Fisher"
+      <input onChange={props.updateUserName}
+        value={props.user}
         id="salesInput"
-        maxLength="11"
-        className="sales-input"
         type="text"
+        maxLength="12"
         placeholder="Enter Name"
       />
 
-      <select id="location" name="location">
-        <option value="Branford, CT">Branford, CT</option>
+      <select onChange={props.updateLocation} id="location" name="location">
+        {/* {<option value="Branford, CT">Branford, CT</option>
         <option value="Derby, CT">Derby, CT</option>
         <option value="Fairfield, CT">Fairfield, CT</option>
         <option value="Hamden, CT">Hamden, CT</option>
         <option value="Milford, CT">Milford, CT</option>
         <option value="North Haven, CT">North Haven, CT</option>
-        <option value="Orange, CT">Orange, CT</option>
+        <option value="Orange, CT">Orange, CT</option>} */}
+        {props.locationOptions}
       </select>
 
       <button className="print-card">Save Card</button>

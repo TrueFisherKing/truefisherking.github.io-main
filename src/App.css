@@ -1,3 +1,17 @@
+/*
+
+This CSS file contains styles for a web application. The styles are designed to ensure a consistent layout and appearance across different devices and screen sizes.
+
+- @page: Sets the page size to landscape for printing.
+- html, body, p: Removes default margin for these elements.
+- html: Sets the height to 100vh (100% of the viewport height).
+- html, html:has(.print-page): Ensures the zoom level is set to 100%.
+- body: Uses flexbox to arrange child elements in a column and sets the font family to system-ui or Arial with bold weight.
+- img: Ensures images are displayed as block elements with auto height and 100% width.
+- h1: Sets the font size, text alignment, and padding for h1 elements.
+- @media screen and (min-width: 770px): Increases the zoom level to 150% for screens wider than 770px.
+- @media screen and (min-width: 1200px): Increases the zoom level to 200% for screens wider than 1200px.
+*/
 @page {
     size: landscape;
 }
@@ -23,7 +37,6 @@ body {
     flex-direction: column;
 
     font-family: system-ui, Arial;
-    font-size: 0.6em;
     font-weight: bold;
 }
 
@@ -34,18 +47,19 @@ img {
 }
 
 h1 {
-  text-align: center;
-  padding: 0 20px
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0 20px
 }
 
-@media screen and (min-width: 720px) {
-  html {
-      zoom: 150%;
-  }
+@media screen and (min-width: 770px) {
+    html {
+        zoom: 150%;
+    }
 }
 
 @media screen and (min-width: 1200px) {
-  html {
-      zoom: 200%;
-  }
+    html {
+        zoom: 200%;
+    }
 }

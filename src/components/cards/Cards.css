@@ -1,3 +1,17 @@
+/* 
+  .cards:
+    - Prevents text selection within the element.
+    - Uses CSS Grid layout with a single column and row.
+    - Sets the font size to 0.6rem.
+    - Centers the element horizontally with auto margins.
+    - Sets the height to 8.5 inches.
+    - Hides overflow content.
+
+  .print-page .cards:
+    - Adjusts the grid layout to have 3 columns and 4 rows.
+    - Sets the width to 11 inches.
+*/
+
 .cards {
   user-select: none;
 
@@ -5,6 +19,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
 
+  font-size: 0.6rem;
   margin: 0 auto;
   height: 8.5in;
   overflow: hidden;

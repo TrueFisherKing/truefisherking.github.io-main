@@ -1,3 +1,10 @@
+#controller {
+  display: flex;
+  justify-content: center;
+  padding: 20px 10px;
+  gap: 10px;
+}
+
 #controller input:focus,
 #controller select:focus,
 #controller button:focus {
@@ -37,11 +44,4 @@
 
 #salesInput {
   padding: 0px 10px;
-}
-
-#controller {
-  display: flex;
-  justify-content: center;
-  padding: 20px 10px;
-  gap: 10px;
 }
