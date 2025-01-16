@@ -7,7 +7,7 @@ import printCards from './data/script'; // Print card functionality
 
 /**
  * App Component
- * Main application component for managing user inputs and rendering the card interface.
+ * Manages user inputs and renders the card interface.
  *
  * @returns {JSX.Element} The rendered App component.
  */
@@ -87,7 +87,7 @@ export default function App() {
         />
 
         {/* Location dropdown menu */}
-        <select onChange={updateLocation} id="location" name="location">
+        <select onChange={updateLocation} id="location" name="location" value={currentLocation}>
           {locationOptions}
         </select>
 
