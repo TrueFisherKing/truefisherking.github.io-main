@@ -6,39 +6,40 @@
   gap: 10px;
 }
 
+/* Styles for input, select, and button elements */
+#controller input,
+#controller select,
+#controller button {
+  border: 2px solid #77f;
+  border-radius: 0;
+  outline: none;
+}
+
 /* Focus styles for input, select, and button elements */
 #controller input:focus,
 #controller select:focus,
 #controller button:focus {
   outline: none;
-  border: 1px solid #77f;
+  border-color: #7c7;
 }
 
 /* Button styles */
 #controller button {
   text-transform: uppercase;
-  border: 1px solid #77f;
   background: #77f;
   color: #fff;
 }
 
-/* Input and select styles */
-#controller input,
-#controller select {
-  border-radius: 0;
-  border: 1px solid #ccc;
-}
-
 /* Hover styles for the button */
 #controller button:hover {
-  border: 1px solid #7c7;
+  border-color: #7c7;
   background: #8d8;
   color: #fff;
 }
 
 /* Focus styles for the button */
 #controller button:focus {
-  border: 1px solid #7c7;
+  border-color: #7c7;
   background: #7c7;
   color: #fff;
 }
