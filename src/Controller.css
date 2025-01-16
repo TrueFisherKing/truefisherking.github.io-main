@@ -1,3 +1,4 @@
+/* Controller container styles */
 #controller {
   display: flex;
   justify-content: center;
@@ -5,14 +6,15 @@
   gap: 10px;
 }
 
+/* Focus styles for input, select, and button elements */
 #controller input:focus,
 #controller select:focus,
 #controller button:focus {
   outline: none;
-  outline: none;
   border: 1px solid #77f;
 }
 
+/* Button styles */
 #controller button {
   text-transform: uppercase;
   border: 1px solid #77f;
@@ -20,28 +22,33 @@
   color: #fff;
 }
 
+/* Input and select styles */
 #controller input,
 #controller select {
   border-radius: 0;
   border: 1px solid #ccc;
 }
 
+/* Hover styles for the button */
 #controller button:hover {
   border: 1px solid #7c7;
   background: #8d8;
   color: #fff;
 }
 
+/* Focus styles for the button */
 #controller button:focus {
   border: 1px solid #7c7;
   background: #7c7;
   color: #fff;
 }
 
+/* Location dropdown styles */
 #location {
   padding: 10px;
 }
 
+/* Sales input field styles */
 #salesInput {
   padding: 0px 10px;
 }

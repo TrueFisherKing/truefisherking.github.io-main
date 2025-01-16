@@ -1,3 +1,15 @@
+/**
+ * Card Component Styles
+ * 
+ * This CSS file contains styles for the card component layout and design.
+ * 
+ * Styles included:
+ * - General card styling
+ * - Image and text styling within the card
+ * - Responsive design adjustments for print
+ */
+
+/* General card styling */
 .card {
   display: none;
   flex-wrap: wrap;
@@ -8,18 +20,22 @@
   border-bottom: 1px dashed #aaa;
 }
 
+/* Remove bottom border for the last three cards */
 .card:nth-last-child(-n+3) {
   border-bottom: 0;
 }
 
+/* Remove left border for every fourth card */
 .card:nth-child(3N + 1) {
   border-left: 0;
 }
 
+/* Display cards in print view */
 .print-page .card {
   display: flex;
 }
 
+/* Styling for the first card */
 .card:first-child {
   display: flex;
   width: calc(11in / 3);
@@ -27,6 +43,7 @@
   margin: 0 auto;
 }
 
+/* Image container styling */
 .images {
   padding: 5px 20px;
   width: 33%;
@@ -41,6 +58,7 @@
   margin-bottom: 8px;
 }
 
+/* Text container styling */
 .text {
   display: flex;
   flex-direction: column;
@@ -54,6 +72,7 @@
   padding: 0px 20px;
 }
 
+/* Top section stars styling */
 .top .stars {
   display: flex;
   gap: 4px;
@@ -62,6 +81,12 @@
   width: 80%;
 }
 
+.stars img {
+  height: 30px;
+  width: 30px;
+}
+
+/* Middle text styling */
 .text .mid {
   color: #04C;
   font-family: "Square Peg", cursive;
@@ -78,25 +103,24 @@
   align-items: flex-start;
 }
 
+/* Adjustments for print view */
 .print-page .text .mid {
   margin-top: -18px;
   margin-bottom: 0px;
 }
 
-.stars img {
-  height: 30px;
-  width: 30px;
-}
-
+/* First paragraph text styling */
 .text p:first-child {
   text-transform: uppercase;
 }
 
+/* Bottom paragraph styling */
 .bottom p {
   border-top: 2px solid #000;
   margin-bottom: 10px;
 }
 
+/* Footer styling */
 .card footer {
   display: flex;
   align-items: center;
@@ -105,6 +129,7 @@
   width: 100%;
 }
 
+/* Footer image container styling */
 .footer-image-container {
   width: 50px;
 }
