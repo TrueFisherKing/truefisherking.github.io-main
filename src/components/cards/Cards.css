@@ -21,12 +21,12 @@
 
   font-size: 0.6rem;
   margin: 0 auto;
-  height: 8.5in;
   overflow: hidden;
 }
 
 .print-page .cards {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
+  height: 8.5in;
   width: 11in;
 }
