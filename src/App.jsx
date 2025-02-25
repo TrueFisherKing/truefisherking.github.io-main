@@ -1,8 +1,8 @@
 import { useRef, useEffect, useState } from 'react'; // React hooks for managing state, refs, and side effects
 import Cards from './components/cards/Cards'; // Card rendering component
-import locations from './data/locations'; // Location data
 import './App.css'; // App styling
 import './Controller.css'; // Controller-specific styling
+import locations from './data/locations'; // Location data
 import printCards from './data/script'; // Print card functionality
 
 /**

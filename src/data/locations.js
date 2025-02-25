@@ -7,5 +7,5 @@ export const locations = [
     { id: 528, value: "North Haven, CT"},
     { id: 532, value: "Orange, CT"},
 ]
-// Get store codes for each location
+
 export default locations
